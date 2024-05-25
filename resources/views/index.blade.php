@@ -19,6 +19,13 @@
         </style>
 
         <style>
+            * {
+                /* Global styles here */
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box; /* Optional: Include if you want all elements to use border-box box model */
+                /* Add more global styles as needed */
+            }
             body {
                 background-color: #37373d;
                 font-family: "Open Sans", sans-serif;
@@ -42,14 +49,18 @@
                 margin-left: 10px;
             }
 
+            .contact-info a:hover {
+                color: #e2e8f0;
+            }
+
             /* Style the phone number differently */
             .contact-info .phone {
-                font-weight: bold;
+                font-weight: 400;
             }
 
             /* Style the email differently */
             .contact-info .email {
-                font-style: italic;
+                font-weight: 400;
             }
 
             .navbar-custom{
@@ -132,19 +143,18 @@
     </head>
     <body class="antialiased">
    
-        <div class="topbar" style="background-color: #37373d; padding: 8px 0;">
-            <div class="container">
-                <div class="contact-info">
-                    <span>Contact Info: </span>
-                    <a href="tel:123-456-7890" class="phone">123-456-7890</a>
-                    <a href="mailto:example@example.com" class="email">example@example.com</a>
+        <div class="sticky-top" style="background-color: #121214; padding: 0 0 8px 0;">
+
+            <div class="" style="background-color: #37373d; padding: 6px 0;">
+                <div class="container">
+                    <div class="contact-info">
+                        <span>Phone: </span>
+                        <a href="tel:123-456-7890" class="phone">+977 9841879827</a>
+                        <span>Email: </span>
+                        <a href="mailto:omuamua07@gmail.com" class="email">omuamua07@gmail.com</a>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="sticky-top" style="background-color: #121214; padding: 8px 0;">
-
-            
 
             <!-- <a class="navbar-brand container brand-logo" href="{{ route('index') }}">SOME LITTLE TRY</a> -->
             <div class="navbar-custom container">
