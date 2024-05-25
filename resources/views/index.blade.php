@@ -25,6 +25,33 @@
                 color: #ffffff;
             }
 
+            /* Topbar */
+            .top-bar {
+                background-color: #333;
+                color: #fff;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .contact-info {
+                text-align: right;
+            }
+
+            .contact-info span, .contact-info a {
+                margin-left: 10px;
+            }
+
+            /* Style the phone number differently */
+            .contact-info .phone {
+                font-weight: bold;
+            }
+
+            /* Style the email differently */
+            .contact-info .email {
+                font-style: italic;
+            }
+
             .navbar-custom{
                 /* z-index: -1; */
                 display: flex;
@@ -104,7 +131,21 @@
         </style>
     </head>
     <body class="antialiased">
+   
+        <div class="topbar" style="background-color: #37373d; padding: 8px 0;">
+            <div class="container">
+                <div class="contact-info">
+                    <span>Contact Info: </span>
+                    <a href="tel:123-456-7890" class="phone">123-456-7890</a>
+                    <a href="mailto:example@example.com" class="email">example@example.com</a>
+                </div>
+            </div>
+        </div>
+
         <div class="sticky-top" style="background-color: #121214; padding: 8px 0;">
+
+            
+
             <!-- <a class="navbar-brand container brand-logo" href="{{ route('index') }}">SOME LITTLE TRY</a> -->
             <div class="navbar-custom container">
                 <a class="navbar-brand brand-logo" href="{{ route('index') }}">Some Little Try</a>

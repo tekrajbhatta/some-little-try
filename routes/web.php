@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-Auth::routes();
+// Auth::routes();
+
+Auth::routes(['register' => false]); // Disable registration routes
+
 
 Route::get('/dashboard', [App\Http\Controllers\PostController::class, 'index'])->name('home');
 Route::get('post/create', [App\Http\Controllers\PostController::class, 'create']);
