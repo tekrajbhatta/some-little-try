@@ -29,7 +29,6 @@
                         @foreach($posts as $post)
                         <tr>
                             <td>{{ $post->title }}</td>
-                            <!-- <td>{{ $post->body }}</td> -->
                             <td>{!! Str::limit($post->body, 100) !!}</td>
                             <td>{{ date('Y-m-d', strtotime($post->created_at)) }}</td>
                             <td>

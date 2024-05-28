@@ -385,12 +385,9 @@
 
     <style>
         * {
-            /* Global styles here */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Optional: Include if you want all elements to use border-box box model */
-            /* Add more global styles as needed */
         }
 
         body {
@@ -399,7 +396,6 @@
             color: #ffffff;
         }
 
-        /* Topbar */
         .top-bar {
             background-color: #333;
             color: #fff;
@@ -408,44 +404,38 @@
             justify-content: space-between;
         }
 
-        /* .contact-info {
-            text-align: right;
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .contact-info span,
-        .contact-info a {
-            margin-left: 10px;
-        } */
+        .contact-info .phone,
+        .contact-info .email {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        /* .contact-info a:hover {
+        .contact-info a:hover {
             color: #e2e8f0;
-        } */
+        }
 
-        /* Style the phone number differently */
         .contact-info .phone {
             font-weight: 400;
         }
 
-        /* Style the email differently */
-        /* .contact-info .email {
-            font-weight: 400;
-        } */
-
         .navbar-custom {
-            /* z-index: -1; */
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .brand-logo {
-            /* font-family: "Luminari", fantasy; */
-            /* font-family: "American Typewriter", serif; */
             font-family: "Brush Script MT", cursive;
             font-size: 28px;
-            /* font-weight: bold; */
             color: #ffffff;
-            /* text-align: center; */
         }
 
         .brand-logo:hover {
@@ -491,12 +481,6 @@
             }
         }
 
-        /* .navbar-nav .dropdown-menu {
-                position: static;
-                width: 20%;
-                margin-left: 10px;
-            } */
-
         .left-side-top-title {
             animation: blinker 1s step-end infinite;
         }
@@ -506,6 +490,7 @@
                 opacity: 0;
             }
         }
+
     </style>
 </head>
 
@@ -515,28 +500,23 @@
         <div class="" style="background-color: #37373d; padding: 6px 0;">
             <div class="container">
                 <div class="contact-info">
-                    <div class="contact-info-title">
-                        <span>You may have anything:</span>
-                    </div>
-                    <div>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-                            </svg>
-                        </span>
+                    <span>You may have anything:</span>
+                    <span class="phone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                        </svg>
                         <a href="tel:+977 9841879827" class="phone">+977 9841879827</a>
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-                            </svg>
-                        </span>
+                    </span>
+                    <span class="email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                        </svg>
                         <a href="mailto:omuamua07@gmail.com" class="email">omuamua07@gmail.com</a>
-                    </div>
+                    </span>
                 </div>
             </div>
         </div>
 
-        <!-- <a class="navbar-brand container brand-logo" href="{{ route('index') }}">SOME LITTLE TRY</a> -->
         <div class="navbar-custom container">
             <a class="navbar-brand brand-logo" href="{{ route('index') }}">Some Little Try</a>
             <a class="login-button">
@@ -545,10 +525,6 @@
                 <a href="{{ url('/dashboard') }}" class="text-sm text-white-700 light:text-white-500 underline dashboard-text">Dashboard</a>
                 @else
                 <a href="{{ route('login') }}" class="text-sm text-white light:text-white-500 underline">Log In</a>
-
-                <!-- @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-white light:text-white-500 underline">Register</a>
-                                @endif -->
                 @endauth
                 @endif
             </a>
@@ -563,7 +539,6 @@
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
                     <div class="card-body" style="font-size: 14px;">
-                        <!-- <h5 class="card-title">Dark card title</h5> -->
                         <p class="card-text post-body">{!! $post->body !!}</p>
                     </div>
                 </div>
@@ -575,5 +550,4 @@
         </div>
     </div>
 </body>
-
 </html>
