@@ -532,10 +532,32 @@
     </div>
 
     <div class="container">
-        <div class="col-md-4 left-sidebar">
-            <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">WORDS</h4>
-            <div class="row">
-                @foreach($posts as $post)
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">wordstext</h4>
+                @foreach($wordstextPosts as $post)
+                <div class="card post-card">
+                    <div class="card-header post-title">{{ $post->title }}</div>
+                    <div class="card-body" style="font-size: 14px;">
+                        <p class="card-text post-body">{!! $post->body !!}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div class="col-md-4">
+                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">longtext</h4>
+                @foreach($longtextPosts as $post)
+                <div class="card post-card">
+                    <div class="card-header post-title">{{ $post->title }}</div>
+                    <div class="card-body" style="font-size: 14px;">
+                        <p class="card-text post-body">{!! $post->body !!}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div class="col-md-4">
+                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">paidtext</h4>
+                @foreach($paidtextPosts as $post)
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
                     <div class="card-body" style="font-size: 14px;">
@@ -545,9 +567,10 @@
                 @endforeach
             </div>
         </div>
-        <div class="col-md-8 right-sidebar">
-
-        </div>
     </div>
+
+
+
+
 </body>
 </html>

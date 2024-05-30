@@ -20,9 +20,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
 Auth::routes(['register' => false]); // Disable registration routes
 
 Route::get('/dashboard', [App\Http\Controllers\PostController::class, 'index'])->name('home');
-Route::get('post/create', [App\Http\Controllers\PostController::class, 'create']);
+Route::get('post/create', [App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
 Route::post('post', [App\Http\Controllers\PostController::class, 'store']);
-Route::get('post/{post}/edit', [App\Http\Controllers\PostController::class, 'edit']);
+Route::get('post/{post}/edit', [App\Http\Controllers\PostController::class, 'edit'])->name('posts.edit');
 Route::get('post/{post}', [App\Http\Controllers\PostController::class, 'show']);
 Route::put('post/{post}', [App\Http\Controllers\PostController::class, 'update'])->name('posts.update');
 Route::delete('post/{post}', [App\Http\Controllers\PostController::class, 'destroy']);

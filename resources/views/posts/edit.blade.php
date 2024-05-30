@@ -26,6 +26,12 @@
                             <label for="">Post Body</label>
                             <textarea class="ckeditor form-control" name="body">{{$post->body}}</textarea>
                         </div>
+
+                        <select name="category_id" required>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ isset($post) && $post->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

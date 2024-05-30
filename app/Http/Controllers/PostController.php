@@ -4,49 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
 
     public function index()
     {
-        // $posts = Post::all();
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('posts.index', compact('posts'));
     }
 
     public function create()
     {
-        return view('posts.create');
-    }
+        $categories = Category::all();
+        return view('posts.create', compact('categories'));
+    }    
 
-    public function store(Request $request,Post $post)
+    public function store(Request $request)
     {
-        // dd($request);
         $request->validate([
             'title' => 'required',
             'body' => 'required'
-        ], [
-            'title.required' => 'Title field is required.',
-            'body.required' => 'Body field is required.'
         ]);
-        // $request->validate([
-        //     'title' => 'required',
-        //     'body' => 'required',
-        //     ]);
-        $post = new Post();
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->save();
-        // dd("test");
-        // die;
-        return redirect('/dashboard')->with('message', 'Post created successfully!');
-        // return redirect()->route('/home')->with('success','Company Has Been updated successfully');
-        // return redirect('/home')->with('success','Post created successfully!');
+
+        Post::create([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+
+        return redirect()->route('home')->with('message', 'Post created successfully!');
     }
 
     public function show(Post $post)
@@ -56,29 +47,28 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
-    }
+        $categories = Category::all();
+        return view('posts.edit', compact('post', 'categories'));
+    }    
 
-    public function update(Post $post, Request $request)
+    public function update(Request $request, Post $post)
     {
-        // echo "Test Test Test";
-        // dd($post);
         $request->validate([
             'title' => 'required',
-            'body' => 'required',
-            ]);
+            'body' => 'required'
+        ]);
 
-        // $post = Post::findOrFail($id);
-        // dd($post);
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->save();
-        return redirect('/dashboard')->with('message','Post updated successfully!');
+        $post->update([
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+
+        return redirect()->route('home')->with('message', 'Post updated successfully!');
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('/dashboard')->with('message', 'Post deleted successfully!');
+        return redirect()->route('home')->with('message', 'Post deleted successfully!');
     }
 }
