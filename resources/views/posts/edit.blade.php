@@ -19,20 +19,23 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="">Post Title</label>
-                            <input type="text" name="title" class="form-control" value="{{$post->title}}">
+                            <input type="text" name="title" class="form-control" value="{{ $post->title }}" required>
                         </div>
 
                         <div class="form-group">
                             <label for="">Post Body</label>
-                            <textarea class="ckeditor form-control" name="body">{{$post->body}}</textarea>
+                            <textarea class="ckeditor form-control" name="body" required>{{ $post->body }}</textarea>
                         </div>
 
-                        <select name="category_id" required>
-                            @foreach($categories as $category)
-                                <option value="{{ $category->id }}" {{ isset($post) && $post->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                        
+                        <div class="form-group">
+                            <label for="category_id">Category</label>
+                            <select name="category_id" class="form-control" required>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ $post->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     

@@ -29,12 +29,14 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
         Post::create([
             'title' => $request->title,
-            'body' => $request->body
+            'body' => $request->body,
+            'category_id' => $request->category_id
         ]);
 
         return redirect()->route('home')->with('message', 'Post created successfully!');
@@ -55,12 +57,14 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'category_id' => 'required|exists:categories,id'
         ]);
 
         $post->update([
             'title' => $request->title,
-            'body' => $request->body
+            'body' => $request->body,
+            'category_id' => $request->category_id
         ]);
 
         return redirect()->route('home')->with('message', 'Post updated successfully!');
