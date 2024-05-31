@@ -534,7 +534,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">wordstext</h4>
+                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">WORDS</h4>
                 @foreach($wordstextPosts as $post)
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
@@ -545,7 +545,7 @@
                 @endforeach
             </div>
             <div class="col-md-4">
-                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">longtext</h4>
+                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;"></h4>
                 @foreach($longtextPosts as $post)
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
@@ -556,7 +556,7 @@
                 @endforeach
             </div>
             <div class="col-md-4">
-                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">paidtext</h4>
+                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;"></h4>
                 @foreach($paidtextPosts as $post)
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
