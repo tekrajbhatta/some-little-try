@@ -9,22 +9,19 @@ class HomeController extends Controller
 {   
     public function index()
     {
-        // $posts = Post::all();
-        // $posts = Post::orderBy('created_at', 'desc')->get();
-        // return view('index', ['posts' => $posts]);
-
         $wordstextPosts = Post::whereHas('category', function ($query) {
             $query->where('name', 'wordstext');
-        })->get();
+        })->orderBy('created_at', 'desc')->get();
     
         $longtextPosts = Post::whereHas('category', function ($query) {
             $query->where('name', 'longtext');
-        })->get();
+        })->orderBy('created_at', 'desc')->get();
     
         $paidtextPosts = Post::whereHas('category', function ($query) {
             $query->where('name', 'paidtext');
-        })->get();
-
-        return view('index', compact('wordstextPosts', 'longtextPosts', 'paidtextPosts'));
+        })->orderBy('created_at', 'desc')->get();
+    
+        return view('posts.index', compact('wordstextPosts', 'longtextPosts', 'paidtextPosts'));
     }
+    
 }
