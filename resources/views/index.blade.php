@@ -577,7 +577,19 @@
     </div>
 
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const showMoreLinks = document.querySelectorAll('.show-more');
 
-
+            showMoreLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const fullText = this.getAttribute('data-fulltext');
+                    const cardText = this.closest('.card-text');
+                    cardText.innerHTML = fullText;
+                });
+            });
+        });
+    </script>
 </body>
 </html>
