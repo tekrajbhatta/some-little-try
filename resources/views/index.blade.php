@@ -563,8 +563,10 @@
                     <div class="card-body" style="font-size: 14px;">
                         <p class="card-text post-body">
                             @if(strlen($post->body) > 200)
-                                {{ substr($post->body, 0, 200) }}...
-                                <a href="#" class="show-more" data-fulltext="{{ $post->body }}">Show More</a>
+                                <span class="short-text">{{ substr($post->body, 0, 200) }}...</span>
+                                <span class="full-text" style="display: none;">{!! $post->body !!}</span>
+                                <a href="#" class="show-more">Show More</a>
+                                <a href="#" class="show-less" style="display: none;">Show Less</a>
                             @else
                                 {!! $post->body !!}
                             @endif
@@ -575,18 +577,31 @@
             </div>
         </div>
     </div>
-
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const showMoreLinks = document.querySelectorAll('.show-more');
+            const showLessLinks = document.querySelectorAll('.show-less');
 
             showMoreLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const fullText = this.getAttribute('data-fulltext');
                     const cardText = this.closest('.card-text');
-                    cardText.innerHTML = fullText;
+                    cardText.querySelector('.short-text').style.display = 'none';
+                    cardText.querySelector('.full-text').style.display = 'block';
+                    this.style.display = 'none';
+                    cardText.querySelector('.show-less').style.display = 'inline';
+                });
+            });
+
+            showLessLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const cardText = this.closest('.card-text');
+                    cardText.querySelector('.short-text').style.display = 'block';
+                    cardText.querySelector('.full-text').style.display = 'none';
+                    this.style.display = 'none';
+                    cardText.querySelector('.show-more').style.display = 'inline';
                 });
             });
         });
