@@ -556,12 +556,19 @@
                 @endforeach
             </div>
             <div class="col-md-4">
-                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;"></h4>
+                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">paidtext</h4>
                 @foreach($paidtextPosts as $post)
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
                     <div class="card-body" style="font-size: 14px;">
-                        <p class="card-text post-body">{!! $post->body !!}</p>
+                        <p class="card-text post-body">
+                            @if(strlen($post->body) > 200)
+                                {{ substr($post->body, 0, 200) }}...
+                                <a href="#" class="show-more" data-fulltext="{{ $post->body }}">Show More</a>
+                            @else
+                                {!! $post->body !!}
+                            @endif
+                        </p>
                     </div>
                 </div>
                 @endforeach
