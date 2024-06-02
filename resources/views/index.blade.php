@@ -568,7 +568,11 @@
                             {!! $truncatedBody !!}
                         </p>
                         @if($isTruncated)
-                        <a href="#" class="show-more">Show more</a>
+                            @auth
+                                <a href="#" class="show-more">Show more</a>
+                            @else
+                                <a href="{{ route('login') }}" class="login-to-see-more">Show more</a>
+                            @endauth
                         @endif
                     </div>
                 </div>
@@ -578,7 +582,7 @@
     </div>
     
     <script>
-         document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.show-more').forEach(function (link) {
                 link.addEventListener('click', function (event) {
                     event.preventDefault();
