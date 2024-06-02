@@ -556,21 +556,20 @@
                 @endforeach
             </div>
             <div class="col-md-4">
-                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">paidtext</h4>
                 @foreach($paidtextPosts as $post)
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
                     <div class="card-body" style="font-size: 14px;">
-                        <p class="card-text post-body">
-                            @if(strlen($post->body) > 200)
-                                <span class="short-text">{{ substr($post->body, 0, 200) }}...</span>
-                                <span class="full-text" style="display: none;">{!! $post->body !!}</span>
-                                <a href="#" class="show-more">Show More</a>
-                                <a href="#" class="show-less" style="display: none;">Show Less</a>
-                            @else
-                                {!! $post->body !!}
-                            @endif
+                        @php
+                            $truncatedBody = Str::limit(strip_tags($post->body), 200);
+                            $isTruncated = strlen(strip_tags($post->body)) > 200;
+                        @endphp
+                        <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
+                            {!! $truncatedBody !!}
                         </p>
+                        @if($isTruncated)
+                        <a href="#" class="show-more">Show more</a>
+                        @endif
                     </div>
                 </div>
                 @endforeach
@@ -579,29 +578,20 @@
     </div>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const showMoreLinks = document.querySelectorAll('.show-more');
-            const showLessLinks = document.querySelectorAll('.show-less');
-
-            showMoreLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const cardText = this.closest('.card-text');
-                    cardText.querySelector('.short-text').style.display = 'none';
-                    cardText.querySelector('.full-text').style.display = 'block';
-                    this.style.display = 'none';
-                    cardText.querySelector('.show-less').style.display = 'inline';
-                });
-            });
-
-            showLessLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const cardText = this.closest('.card-text');
-                    cardText.querySelector('.short-text').style.display = 'block';
-                    cardText.querySelector('.full-text').style.display = 'none';
-                    this.style.display = 'none';
-                    cardText.querySelector('.show-more').style.display = 'inline';
+         document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.show-more').forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const p = link.previousElementSibling;
+                    const fullText = p.getAttribute('data-full-text');
+                    const truncatedText = p.getAttribute('data-truncated-text');
+                    if (link.textContent === 'Show more') {
+                        p.innerHTML = fullText;
+                        link.textContent = 'Show less';
+                    } else {
+                        p.innerHTML = truncatedText;
+                        link.textContent = 'Show more';
+                    }
                 });
             });
         });
