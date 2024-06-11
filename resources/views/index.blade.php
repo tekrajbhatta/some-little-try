@@ -481,13 +481,33 @@
             }
         }
 
-        .left-side-top-title {
+        /* .left-side-top-title {
             animation: blinker 1s step-end infinite;
         }
 
         @keyframes blinker {
             50% {
                 opacity: 0;
+            }
+        } */
+
+        .left-side-top-title {
+            position: relative; /* This allows absolute positioning for animation */
+            animation: move-and-fade 5s ease-in-out infinite alternate; /* Animation definition */
+            }
+
+            @keyframes move-and-fade {
+            0% {
+                opacity: 0;
+                transform: translateX(0); /* Start from left */
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(100%); /* Move to right at halfway */
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(0); /* Move back to left and fade out */
             }
         }
 
@@ -533,8 +553,12 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">WORDS</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
                 @foreach($wordstextPosts as $post)
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
@@ -545,7 +569,6 @@
                 @endforeach
             </div>
             <div class="col-md-4">
-                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;"></h4>
                 @foreach($longtextPosts as $post)
                 <div class="card post-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
@@ -580,7 +603,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.show-more').forEach(function (link) {
