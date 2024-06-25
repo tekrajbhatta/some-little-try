@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -10,6 +13,9 @@
     <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Styles -->
     <style>
@@ -511,6 +517,92 @@
             }
         }
 
+        /* Cards Design */
+
+        .post-card {
+            border-radius: 8px;
+        }
+
+        .keywords-text-card {
+            background: linear-gradient(220.55deg, #FFD439 0%, #FF7A00 100%);
+        }
+
+        .long-text-card {
+            background: linear-gradient(220.55deg, #3793FF 0%, #0017E4 100%);
+        }
+
+        .paid-text-card {
+            background:  linear-gradient(220.55deg, #FF896D 0%, #D02020 100%);
+        }
+
+
+        a.login-to-see-more:hover {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+        }
+
+       
+
+        .swiper-section {
+        margin-top: 50px;
+            overflow: auto;
+        overflow-x: hidden;
+        margin-bottom: 50px;
+        }
+
+        .swiper {
+        /* aspect-ratio:4/1; */
+        /* min-height: 400px;
+        max-height: 450px; */
+        }
+
+        .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        /* background: #fff; */
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        }
+
+        .swiper-container {
+        max-width: 1200px;
+        padding: 0 20px;
+        margin: 0 auto;
+        }
+
+        .keywords-text-card {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            min-height: 400px;
+            border-radius: 4px;
+        }
+
+        .post-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .post-content {
+            padding: 0 20px;
+        }
+
+        .view-more-btn {
+            display: none; /* Initially hide the button */
+            position: absolute; /* Position it within the card */
+            bottom: 10px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
+            background-color: #007bff; /* Button styling */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -552,25 +644,58 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
                 <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">WORDS</h4>
             </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">WORDS</h4>
+            </div>
         </div>
+
+
+
+            <section class="swiper-section">
+                <div class="swiper-container">
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    @foreach($wordstextPosts as $post)
+                    <div class="swiper-slide">
+                    <div class="keywords-text-card">
+                        <p class="post-title">{{ $post->title }}</p>
+                        <div class="post-content" style="font-size: 14px;" data-full-content="{{ $post->body }}">
+                            {!! Str::limit($post->body, 400) !!}
+                        </div>
+                        @if(Str::length($post->body) > 400)
+                            <button class="view-more-btn">View More</button>
+                        @endif
+                    </div>
+                    </div>
+                    @endforeach
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                </div>
+                </section>
+
+
+        
         <div class="row">
             <div class="col-md-4">
-                @foreach($wordstextPosts as $post)
-                <div class="card post-card">
-                    <div class="card-header post-title">{{ $post->title }}</div>
-                    <div class="card-body" style="font-size: 14px;">
-                        <p class="card-text post-body">{!! $post->body !!}</p>
-                    </div>
-                </div>
-                @endforeach
+             test
             </div>
             <div class="col-md-4">
                 @foreach($longtextPosts as $post)
-                <div class="card post-card">
+                <div class="card post-card long-text-card">
                     <div class="card-header post-title">{{ $post->title }}</div>
                     <div class="card-body" style="font-size: 14px;">
                         <p class="card-text post-body">{!! $post->body !!}</p>
@@ -580,29 +705,74 @@
             </div>
             <div class="col-md-4">
                 @foreach($paidtextPosts as $post)
-                <div class="card post-card">
-                    <div class="card-header post-title">{{ $post->title }}</div>
-                    <div class="card-body" style="font-size: 14px;">
-                        @php
-                            $truncatedBody = Str::limit(strip_tags($post->body), 200);
-                            $isTruncated = strlen(strip_tags($post->body)) > 200;
-                        @endphp
-                        <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
-                            {!! $truncatedBody !!}
-                        </p>
-                        @if($isTruncated)
-                            @auth
-                                <a href="#" class="show-more">Show more</a>
-                            @else
-                                <a href="{{ route('login') }}" class="login-to-see-more">Show more</a>
-                            @endauth
-                        @endif
+                    <div class="card post-card paid-text-card">
+                        <div class="card-header post-title">{{ $post->title }}</div>
+                        <div class="card-body" style="font-size: 14px;">
+                            @php
+                                $truncatedBody = Str::limit(strip_tags($post->body), 200);
+                                $isTruncated = strlen(strip_tags($post->body)) > 200;
+                            @endphp
+                            <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
+                                {!! $truncatedBody !!}
+                            </p>
+                            @if($isTruncated)
+                                @auth
+                                    <a href="#" class="show-more">Read more</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="login-to-see-more">Read more</a>
+                                @endauth
+                            @endif
+                        </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
     </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+       const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        slidesPerView: 3,
+        spaceBetween: 30,loop: true,
+        // Navigation arrows
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        mousewheel: {
+        releaseOnEdges: true,
+        eventsTarget: "container",
+        }
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.post-content').forEach(function(content) {
+                const fullContent = content.getAttribute('data-full-content');
+                const viewMoreBtn = content.nextElementSibling;
+
+                if (fullContent.length > 400) {
+                    viewMoreBtn.style.display = 'inline-block';
+                }
+
+                viewMoreBtn.addEventListener('click', function() {
+                    if (viewMoreBtn.textContent === 'View More') {
+                        content.textContent = fullContent;
+                        viewMoreBtn.textContent = 'View Less';
+                    } else {
+                        content.textContent = fullContent.substring(0, 400) + '...';
+                        viewMoreBtn.textContent = 'View More';
+                    }
+                });
+            });
+        });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
