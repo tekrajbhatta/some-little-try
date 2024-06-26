@@ -593,14 +593,15 @@
 
         .view-more-btn {
             display: none; /* Initially hide the button */
-            position: absolute; /* Position it within the card */
-            bottom: 10px; /* Adjust as needed */
-            right: 10px; /* Adjust as needed */
-            background-color: #007bff; /* Button styling */
-            color: white;
-            border: none;
-            padding: 5px 10px;
+            color: #fff;
             cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        .view-more-btn:hover {
+            color: #fff;
         }
 
     </style>
@@ -668,10 +669,10 @@
                     <div class="keywords-text-card">
                         <p class="post-title">{{ $post->title }}</p>
                         <div class="post-content" style="font-size: 14px;" data-full-content="{{ $post->body }}">
-                            {!! Str::limit($post->body, 400) !!}
+                            {!! Str::limit($post->body, 600) !!}
                         </div>
-                        @if(Str::length($post->body) > 400)
-                            <button class="view-more-btn">View More</button>
+                        @if(Str::length($post->body) > 600)
+                            <a class="view-more-btn">View More</a>
                         @endif
                     </div>
                     </div>
@@ -734,19 +735,34 @@
 
     <!-- Initialize Swiper -->
     <script>
-       const swiper = new Swiper(".swiper", {
-        // Optional parameters
-        slidesPerView: 3,
-        spaceBetween: 30,loop: true,
-        // Navigation arrows
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev"
-        },
-        mousewheel: {
-        releaseOnEdges: true,
-        eventsTarget: "container",
-        }
+        const swiper = new Swiper(".swiper", {
+            // Optional parameters
+            slidesPerView: 1,
+            // spaceBetween: 30,
+            loop: true,
+            // Navigation arrows
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            mousewheel: {
+                releaseOnEdges: true,
+                eventsTarget: "container",
+            },
+            breakpoints: {
+            640: {
+            slidesPerView: 1,
+            // spaceBetween: 20,
+            },
+            768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            },
+            1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            },
+            },
         });
 
     </script>
@@ -757,19 +773,19 @@
                 const fullContent = content.getAttribute('data-full-content');
                 const viewMoreBtn = content.nextElementSibling;
 
-                if (fullContent.length > 400) {
+                if (fullContent.length > 600) {
                     viewMoreBtn.style.display = 'inline-block';
                 }
 
-                viewMoreBtn.addEventListener('click', function() {
-                    if (viewMoreBtn.textContent === 'View More') {
-                        content.textContent = fullContent;
-                        viewMoreBtn.textContent = 'View Less';
-                    } else {
-                        content.textContent = fullContent.substring(0, 400) + '...';
-                        viewMoreBtn.textContent = 'View More';
-                    }
-                });
+                // viewMoreBtn.addEventListener('click', function() {
+                //     if (viewMoreBtn.textContent === 'View More') {
+                //         content.textContent = fullContent;
+                //         viewMoreBtn.textContent = 'View Less';
+                //     } else {
+                //         content.textContent = fullContent.substring(0, 400) + '...';
+                //         viewMoreBtn.textContent = 'View More';
+                //     }
+                // });
             });
         });
     </script>
