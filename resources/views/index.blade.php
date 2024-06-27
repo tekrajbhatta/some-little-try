@@ -1,5 +1,5 @@
 @php
-    use Illuminate\Support\Str;
+use Illuminate\Support\Str;
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -498,22 +498,29 @@
         } */
 
         .left-side-top-title {
-            position: relative; /* This allows absolute positioning for animation */
-            animation: move-and-fade 5s ease-in-out infinite alternate; /* Animation definition */
-            }
+            position: relative;
+            /* This allows absolute positioning for animation */
+            animation: move-and-fade 5s ease-in-out infinite alternate;
+            /* Animation definition */
+        }
 
-            @keyframes move-and-fade {
+        @keyframes move-and-fade {
             0% {
                 opacity: 0;
-                transform: translateX(0); /* Start from left */
+                transform: translateX(0);
+                /* Start from left */
             }
+
             50% {
                 opacity: 1;
-                transform: translateX(100%); /* Move to right at halfway */
+                transform: translateX(100%);
+                /* Move to right at halfway */
             }
+
             100% {
                 opacity: 0;
-                transform: translateX(0); /* Move back to left and fade out */
+                transform: translateX(0);
+                /* Move back to left and fade out */
             }
         }
 
@@ -532,7 +539,7 @@
         }
 
         .paid-text-card {
-            background:  linear-gradient(220.55deg, #FF896D 0%, #D02020 100%);
+            background: linear-gradient(220.55deg, #FF896D 0%, #D02020 100%);
         }
 
 
@@ -542,35 +549,35 @@
             font-weight: 600;
         }
 
-       
+
 
         .swiper-section {
-        margin-top: 50px;
+            margin-top: 50px;
             overflow: auto;
-        overflow-x: hidden;
-        margin-bottom: 50px;
+            overflow-x: hidden;
+            margin-bottom: 50px;
         }
 
         .swiper {
-        /* aspect-ratio:4/1; */
-        /* min-height: 400px;
+            /* aspect-ratio:4/1; */
+            /* min-height: 400px;
         max-height: 450px; */
         }
 
         .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        /* background: #fff; */
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
+            text-align: center;
+            font-size: 18px;
+            /* background: #fff; */
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
         }
 
         .swiper-container {
-        max-width: 1200px;
-        padding: 0 20px;
-        margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 20px;
+            margin: 0 auto;
         }
 
         .keywords-text-card {
@@ -595,7 +602,8 @@
         }
 
         .view-more-btn {
-            display: none; /* Initially hide the button */
+            display: none;
+            /* Initially hide the button */
             color: #fff;
             cursor: pointer;
             font-size: 14px;
@@ -608,7 +616,13 @@
         }
 
         @media only screen and (max-width: 768px) {
-            
+            .sticky-top {
+                padding: 0 0 0 0 !important;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
             .contact-info {
                 flex-direction: column;
                 align-items: center;
@@ -629,13 +643,129 @@
                 padding-left: 30px;
                 padding-right: 30px;
             }
+
+            .sticky-top {
+                padding: 0 0 8px 0 !important;
+            }
+        }
+
+        /* New Hero Section */
+        section.hero-section {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin: 42px 0;
+            border: 5px solid white;
+            padding: 20px;
+        }
+
+        h4.hero-text {
+            margin-bottom: 42px;
+            font-family: "Brush Script MT", cursive;
+            font-size: 42px;
+            color: #ffffff;
+            text-transform: capitalize;
+        }
+
+        .hero-boxes {
+            display: flex;
+            gap: 42px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-box-shape {
+            width: 42px;
+            height: 42px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .hero-box-shape.yellow {
+            background: linear-gradient(220.55deg, #FFD439 0%, #FF7A00 100%);
+        }
+
+        .hero-box-shape.blue {
+            background: linear-gradient(220.55deg, #3793FF 0%, #0017E4 100%);
+        }
+
+        .hero-box-shape.red {
+            background: linear-gradient(220.55deg, #FF896D 0%, #D02020 100%);
+        }
+
+        .hero-box-shape.green {
+            background: linear-gradient(220.55deg, #00FF00 0%, #007D00 100%);
+        }
+
+        p.read-instruction {
+            margin-bottom: 20px;
+        }
+
+        .hero-box p {
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            h4.hero-text {
+                margin-bottom: 24px;
+                font-size: 24px;
+            }
+
+            .hero-boxes {
+                gap: 15px;
+            }
+
+            .hero-box p {
+                text-align: center;
+            }
+        }
+
+        @media only screen and (max-width: 420px) { 
+            h4.hero-text {
+                margin-bottom: 20px;
+                font-size: 20px;
+            }
+
+            p.read-instruction{
+                font-size: 14px;
+            }
+
+            .hero-box-shape {
+                height: 34px;
+                width: 34px;
+            }
+
+            .hero-boxes {
+                gap: 8px;
+            }
+
+            .hero-box p {
+                text-align: center;
+                font-size: 14px;
+            }
+        }
+
+        @media only screen and (max-width: 370px) { 
+            .hero-box p {
+                text-align: center;
+                font-size: 12px;
+            }
         }
 
     </style>
 </head>
 
 <body class="antialiased">
-    <div class="sticky-top" style="background-color: #121214; padding: 0 0 8px 0;">
+    <div class="sticky-top" style="background-color: #121214;">
 
         <div class="" style="background-color: #37373d; padding: 6px 0;">
             <div class="container">
@@ -677,33 +807,51 @@
                 <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">WORDS</h4>
             </div>
         </div> -->
-        <div class="row">
-            <div class="col-md-12">
-                <h4 class="" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">WORDS</h4>
+        <section class="hero-section">
+            <h4 class="hero-text">Creation is anything you are.</h4>
+            <p class="read-instruction">
+                Note: Please choose your interest area to read.
+            </p>
+            <div class="hero-boxes">
+                <div class="hero-box">
+                    <div class="hero-box-shape yellow"></div>
+                    <p><a href="#keywords">Keywords Section</a></p>
+                </div>
+                <div class="hero-box">
+                    <div class="hero-box-shape blue"></div>
+                    <p><a href="#longtext">Long Text Section</a></p>
+                </div>
+                <div class="hero-box">
+                    <div class="hero-box-shape red"></div>
+                    <p><a href="#premiumtext">Premium Text Section</a></p>
+                </div>
+                <div class="hero-box">
+                    <div class="hero-box-shape green"></div>
+                    <p><a href="#graphicstext">Graphics Section</a></p>
+                </div>
             </div>
-        </div>
+            
+        </section>
 
-
-
-            <section class="swiper-section">
-                <div class="swiper-container">
+        <section id="keywords" class="swiper-section">
+            <div class="swiper-container">
                 <div class="swiper">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    @foreach($wordstextPosts as $post)
-                    <div class="swiper-slide">
-                    <div class="keywords-text-card">
-                        <p class="post-title">{{ $post->title }}</p>
-                        <div class="post-content" style="font-size: 14px;" data-full-content="{{ $post->body }}">
-                            {!! Str::limit($post->body, 550) !!}
+                        <!-- Slides -->
+                        @foreach($wordstextPosts as $post)
+                        <div class="swiper-slide">
+                            <div class="keywords-text-card">
+                                <p class="post-title">{{ $post->title }}</p>
+                                <div class="post-content" style="font-size: 14px;" data-full-content="{{ $post->body }}">
+                                    {!! Str::limit($post->body, 550) !!}
+                                </div>
+                                @if(Str::length($post->body) > 550)
+                                <a class="view-more-btn">View More</a>
+                                @endif
+                            </div>
                         </div>
-                        @if(Str::length($post->body) > 550)
-                            <a class="view-more-btn">View More</a>
-                        @endif
-                    </div>
-                    </div>
-                    @endforeach
+                        @endforeach
                     </div>
                     <!-- If we need pagination -->
                     <div class="swiper-pagination"></div>
@@ -712,14 +860,26 @@
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
-                </div>
-                </section>
+            </div>
+        </section>
+
+        <section id="longtext">
+            This is blue
+        </section>
+
+        <section id="premiumtext">
+            This is red
+        </section>
+
+        <section id="graphicstext">
+            This is green
+        </section>
 
 
-        
+
         <div class="row">
             <div class="col-md-4">
-             test
+                test
             </div>
             <div class="col-md-4">
                 @foreach($longtextPosts as $post)
@@ -733,25 +893,25 @@
             </div>
             <div class="col-md-4">
                 @foreach($paidtextPosts as $post)
-                    <div class="card post-card paid-text-card">
-                        <div class="card-header post-title">{{ $post->title }}</div>
-                        <div class="card-body" style="font-size: 14px;">
-                            @php
-                                $truncatedBody = Str::limit(strip_tags($post->body), 200);
-                                $isTruncated = strlen(strip_tags($post->body)) > 200;
-                            @endphp
-                            <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
-                                {!! $truncatedBody !!}
-                            </p>
-                            @if($isTruncated)
-                                @auth
-                                    <a href="#" class="show-more">Read more</a>
-                                @else
-                                    <a href="{{ route('login') }}" class="login-to-see-more">Read more</a>
-                                @endauth
-                            @endif
-                        </div>
+                <div class="card post-card paid-text-card">
+                    <div class="card-header post-title">{{ $post->title }}</div>
+                    <div class="card-body" style="font-size: 14px;">
+                        @php
+                        $truncatedBody = Str::limit(strip_tags($post->body), 200);
+                        $isTruncated = strlen(strip_tags($post->body)) > 200;
+                        @endphp
+                        <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
+                            {!! $truncatedBody !!}
+                        </p>
+                        @if($isTruncated)
+                        @auth
+                        <a href="#" class="show-more">Read more</a>
+                        @else
+                        <a href="{{ route('login') }}" class="login-to-see-more">Read more</a>
+                        @endauth
+                        @endif
                     </div>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -777,21 +937,20 @@
                 eventsTarget: "container",
             },
             breakpoints: {
-            640: {
-            slidesPerView: 1,
-            // spaceBetween: 20,
-            },
-            768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            },
-            1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            },
+                640: {
+                    slidesPerView: 1,
+                    // spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
             },
         });
-
     </script>
 
     <script>
@@ -818,9 +977,9 @@
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.show-more').forEach(function (link) {
-                link.addEventListener('click', function (event) {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.show-more').forEach(function(link) {
+                link.addEventListener('click', function(event) {
                     event.preventDefault();
                     const p = link.previousElementSibling;
                     const fullText = p.getAttribute('data-full-text');
@@ -837,4 +996,5 @@
         });
     </script>
 </body>
+
 </html>
