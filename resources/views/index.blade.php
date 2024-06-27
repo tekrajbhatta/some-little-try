@@ -583,12 +583,15 @@
 
         .post-title {
             font-size: 18px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             margin-top: 10px;
+            background-color: rgba(0, 0, 0, .03);
+            border-bottom: 1px solid rgba(0, 0, 0, .125);
         }
 
         .post-content {
             padding: 0 20px;
+            text-align: justify;
         }
 
         .view-more-btn {
@@ -597,11 +600,35 @@
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
-            margin: 5px 0;
+            margin: 10px 0 0 0;
         }
 
         .view-more-btn:hover {
             color: #fff;
+        }
+
+        @media only screen and (max-width: 768px) {
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0px;
+                font-size: 14px;
+            }
+
+            .navbar-brand {
+                padding-bottom: 0px;
+            }
+
+            .brand-logo {
+                font-size: 22px;
+            }
+
+            .navbar-custom.container {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
         }
 
     </style>
@@ -631,7 +658,7 @@
         </div>
 
         <div class="navbar-custom container">
-            <a class="navbar-brand brand-logo" href="{{ route('index') }}">Some Little Try</a>
+            <a class="navbar-brand brand-logo" href="{{ route('index') }}">Anyonow</a>
             <a class="login-button">
                 @if (Route::has('login'))
                 @auth
@@ -669,9 +696,9 @@
                     <div class="keywords-text-card">
                         <p class="post-title">{{ $post->title }}</p>
                         <div class="post-content" style="font-size: 14px;" data-full-content="{{ $post->body }}">
-                            {!! Str::limit($post->body, 600) !!}
+                            {!! Str::limit($post->body, 550) !!}
                         </div>
-                        @if(Str::length($post->body) > 600)
+                        @if(Str::length($post->body) > 550)
                             <a class="view-more-btn">View More</a>
                         @endif
                     </div>
@@ -773,7 +800,7 @@
                 const fullContent = content.getAttribute('data-full-content');
                 const viewMoreBtn = content.nextElementSibling;
 
-                if (fullContent.length > 600) {
+                if (fullContent.length > 550) {
                     viewMoreBtn.style.display = 'inline-block';
                 }
 
