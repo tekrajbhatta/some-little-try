@@ -22,7 +22,8 @@
 
                         <div class="form-group">
                             <label for="">Post Body</label>
-                            <textarea class="ckeditor form-control" name="body" required></textarea>
+                            <!-- <textarea class="ckeditor form-control" name="body" required></textarea> -->
+                            <textarea id="summernote" class="form-control" name="body" required></textarea>
                         </div>
 
                         <div class="form-group">
@@ -46,8 +47,17 @@
 @endsection
 @section('scripts')
     <script>
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
+        // // CK Editor
+        // $(document).ready(function () {
+        //     $('.ckeditor').ckeditor();
+        // });
+
+        // Summernote
+        // $('#summernote').summernote({
+        //     placeholder: 'Start your writing...',
+        //     tabsize: 2,
+        //     height: 100
+        // });
+
     </script>
 @endsection
