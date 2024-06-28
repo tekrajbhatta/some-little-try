@@ -14,6 +14,11 @@ use Illuminate\Support\Str;
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -687,6 +692,7 @@ use Illuminate\Support\Str;
             height: 42px;
             border-radius: 4px;
             margin-bottom: 20px;
+            cursor: pointer;
         }
 
         .hero-box-shape.yellow {
@@ -713,6 +719,12 @@ use Illuminate\Support\Str;
             text-align: center;
         }
 
+        .hero-box p a:hover {
+            color: #ffffff;
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
         @media only screen and (max-width: 768px) {
 
             h4.hero-text {
@@ -726,6 +738,10 @@ use Illuminate\Support\Str;
 
             .hero-box p {
                 text-align: center;
+            }
+
+            .swiper-container {
+                padding: 0 10px;
             }
         }
 
@@ -802,11 +818,6 @@ use Illuminate\Support\Str;
     </div>
 
     <div class="container">
-        <!-- <div class="row">
-            <div class="col-md-12">
-                <h4 class="left-side-top-title" style="padding: 20px 0; font-weight: bold; text-decoration: underline;">WORDS</h4>
-            </div>
-        </div> -->
         <section class="hero-section">
             <h4 class="hero-text">Creation is anything you are.</h4>
             <p class="read-instruction">
@@ -814,23 +825,22 @@ use Illuminate\Support\Str;
             </p>
             <div class="hero-boxes">
                 <div class="hero-box">
-                    <div class="hero-box-shape yellow"></div>
-                    <p><a href="#keywords">Keywords Section</a></p>
+                    <div id="yellowBox" class="hero-box-shape yellow"></div>
+                    <p><a href="#" id="moveYellowLink">Keywords Section</a></p>
                 </div>
                 <div class="hero-box">
-                    <div class="hero-box-shape blue"></div>
-                    <p><a href="#longtext">Long Text Section</a></p>
+                    <div id="blueBox" class="hero-box-shape blue"></div>
+                    <p><a href="#" id="moveBlueLink">Long Text Section</a></p>
                 </div>
                 <div class="hero-box">
-                    <div class="hero-box-shape red"></div>
-                    <p><a href="#premiumtext">Premium Text Section</a></p>
+                    <div id="redBox" class="hero-box-shape red"></div>
+                    <p><a href="#" id="moveRedLink">Premium Text Section</a></p>
                 </div>
                 <div class="hero-box">
-                    <div class="hero-box-shape green"></div>
-                    <p><a href="#graphicstext">Graphics Section</a></p>
+                    <div id="greenBox" class="hero-box-shape green"></div>
+                    <p><a href="#" id="moveGreenLink">Graphics Section</a></p>
                 </div>
             </div>
-            
         </section>
 
         <section id="keywords" class="swiper-section">
@@ -863,15 +873,15 @@ use Illuminate\Support\Str;
             </div>
         </section>
 
-        <section id="longtext">
+        <section id="longtext" style="width:100%; height: 600px; margin: 42px 0; background: blue;">
             This is blue
         </section>
 
-        <section id="premiumtext">
+        <section id="premiumtext" style="width:100%; height: 600px; margin: 42px 0; background: red;">
             This is red
         </section>
 
-        <section id="graphicstext">
+        <section id="graphicstext" style="width:100%; height: 600px; margin: 42px 0; background: green;">
             This is green
         </section>
 
@@ -916,6 +926,59 @@ use Illuminate\Support\Str;
             </div>
         </div>
     </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- JS to move boxes to specific section -->
+    <script>
+        $(document).ready(function(){
+            function scrollToSection(sectionId) {
+                var offset = 130; // Adjust this value as needed
+                $('html, body').animate({
+                    scrollTop: $(sectionId).offset().top - offset
+                }, 1000); // Adjust the speed (in milliseconds) as needed
+            }
+
+            $("#yellowBox").click(function(){
+                scrollToSection("#keywords");
+            });
+
+            $("#moveYellowLink").click(function(event){
+                event.preventDefault(); // Prevent the default anchor behavior
+                scrollToSection("#keywords");
+            });
+
+            $("#blueBox").click(function(){
+                scrollToSection("#longtext");
+            });
+
+            $("#moveBlueLink").click(function(event){
+                event.preventDefault(); // Prevent the default anchor behavior
+                scrollToSection("#longtext");
+            });
+
+            $("#redBox").click(function(){
+                scrollToSection("#premiumtext");
+            });
+
+            $("#moveRedLink").click(function(event){
+                event.preventDefault(); // Prevent the default anchor behavior
+                scrollToSection("#premiumtext");
+            });
+
+            $("#greenBox").click(function(){
+                scrollToSection("#graphicstext");
+            });
+
+            $("#moveGreenLink").click(function(event){
+                event.preventDefault(); // Prevent the default anchor behavior
+                scrollToSection("#graphicstext");
+            });
+        });
+    </script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
