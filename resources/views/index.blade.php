@@ -593,6 +593,14 @@ use Illuminate\Support\Str;
             border-radius: 4px;
         }
 
+        .long-text-card {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            min-height: 800px;
+            border-radius: 4px;
+        }
+
         .post-title {
             font-size: 18px;
             margin-bottom: 20px;
@@ -873,6 +881,34 @@ use Illuminate\Support\Str;
             </div>
         </section>
 
+        <section id="longtext" class="swiper-section">
+            <div class="swiper-container">
+                <div class="swiper1">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        @foreach($longtextPosts as $post)
+                        <div class="swiper-slide">
+                            <div class="long-text-card">
+                                <p class="post-title">{{ $post->title }}</p>
+                                <div class="post-content" style="font-size: 14px;" data-full-content="{{ $post->body }}">
+                                    {!! $post->body !!}
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper1-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper1-button-prev"></div>
+                    <div class="swiper1-button-next"></div>
+                </div>
+            </div>
+        </section>
+
+
         <section id="longtext" style="width:100%; height: 600px; margin: 42px 0; background: blue;">
             This is blue
         </section>
@@ -1012,6 +1048,20 @@ use Illuminate\Support\Str;
                     slidesPerView: 3,
                     spaceBetween: 30,
                 },
+            },
+        });
+    </script>
+
+    <script>
+        const swiper1 = new Swiper(".swiper1", {
+            // Optional parameters
+            pagination: {
+                el: ".swiper1-pagination",
+                type: "progressbar",
+            },
+            navigation: {
+                nextEl: ".swiper1-button-next",
+                prevEl: ".swiper1-button-prev",
             },
         });
     </script>
