@@ -946,50 +946,12 @@ use Illuminate\Support\Str;
             </div>
         </section>
 
-        <section id="graphicstext" style="width:100%; height: 600px; margin: 42px 0; background: green;">
-            This is green
+        <section id="graphicstext" style="width:100%; height: 600px; margin: 42px 0; background: green; display: flex; align-items:center; justify-content: center; ">
+            <p style="font-size: 24px; ">
+                This is the graphics text section.
+            </p>
         </section>
 
-
-
-        <div class="row">
-            <div class="col-md-4">
-                test
-            </div>
-            <div class="col-md-4">
-                @foreach($longtextPosts as $post)
-                <div class="card post-card long-text-card">
-                    <div class="card-header post-title">{{ $post->title }}</div>
-                    <div class="card-body" style="font-size: 14px;">
-                        <p class="card-text post-body">{!! $post->body !!}</p>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-            <div class="col-md-4">
-                @foreach($paidtextPosts as $post)
-                <div class="card post-card paid-text-card">
-                    <div class="card-header post-title">{{ $post->title }}</div>
-                    <div class="card-body" style="font-size: 14px;">
-                        @php
-                        $truncatedBody = Str::limit(strip_tags($post->body), 200);
-                        $isTruncated = strlen(strip_tags($post->body)) > 200;
-                        @endphp
-                        <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
-                            {!! $truncatedBody !!}
-                        </p>
-                        @if($isTruncated)
-                        @auth
-                        <a href="#" class="show-more">Read more</a>
-                        @else
-                        <a href="{{ route('login') }}" class="login-to-see-more">Read more</a>
-                        @endauth
-                        @endif
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
     </div>
 
     <!-- jQuery CDN -->
