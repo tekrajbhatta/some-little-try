@@ -597,7 +597,7 @@ use Illuminate\Support\Str;
             display: flex;
             flex-direction: column;
             /* align-items: center; */
-            min-height: 800px;
+            min-height: 600px;
             border-radius: 4px;
         }
 
@@ -786,7 +786,11 @@ use Illuminate\Support\Str;
         }
 
         /* Multiple swiperjs instances */
-        .swiper-button-next.s5, .swiper-button-prev.s5 {
+        .swiper-button-next.s1, .swiper-button-prev.s1 {
+            color: #fff !important;
+        }
+
+        .swiper-button-next.s2, .swiper-button-prev.s2 {
             color: #fff !important;
         }
 
@@ -858,7 +862,7 @@ use Illuminate\Support\Str;
 
         <section id="keywords" class="swiper-section">
             <div class="swiper-container">
-                <div class="swiper">
+                <div class="swiper s1">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
@@ -880,8 +884,8 @@ use Illuminate\Support\Str;
                     <div class="swiper-pagination"></div>
 
                     <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev s1"></div>
+                    <div class="swiper-button-next s1"></div>
                 </div>
             </div>
         </section>
@@ -889,7 +893,7 @@ use Illuminate\Support\Str;
         
         <section id="longtext" class="swiper-section">
             <div class="swiper-container">
-                <div class="swiper s5">
+                <div class="swiper s2">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
@@ -908,8 +912,8 @@ use Illuminate\Support\Str;
                     <div class="swiper-pagination"></div>
 
                     <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev s5"></div>
-                    <div class="swiper-button-next s5"></div>
+                    <div class="swiper-button-prev s2"></div>
+                    <div class="swiper-button-next s2"></div>
                 </div>
             </div>
         </section>
@@ -1026,7 +1030,7 @@ use Illuminate\Support\Str;
 
     <!-- Initialize Swiper -->
     <script>
-        const swiper = new Swiper(".swiper", {
+        const s1 = new Swiper(".s1", {
             // Optional parameters
             slidesPerView: 1,
             // spaceBetween: 30,
@@ -1056,7 +1060,7 @@ use Illuminate\Support\Str;
             },
         });
 
-        const s5 = new Swiper(".s5", {
+        const s2 = new Swiper(".s2", {
             // Optional parameters
             slidesPerView: 1,
             // spaceBetween: 30,
