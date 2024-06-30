@@ -908,6 +908,42 @@ use Illuminate\Support\Str;
             </div>
         </section>
 
+        <!-- Swiper -->
+        <div class="swiper-container swiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination1"></div>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper-container swiper3">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination2"></div>
+        </div>
+
 
         <section id="longtext" style="width:100%; height: 600px; margin: 42px 0; background: blue;">
             This is blue
@@ -1064,6 +1100,18 @@ use Illuminate\Support\Str;
                 prevEl: ".swiper1-button-prev",
             },
         });
+    </script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper2 = new Swiper('.swiper1', {
+        pagination: '.swiper-pagination1',
+        paginationClickable: true,
+    });
+    var swiper3 = new Swiper('.swiper2', {
+        pagination: '.swiper-pagination2',
+        paginationClickable: true,
+    });
     </script>
 
     <script>
