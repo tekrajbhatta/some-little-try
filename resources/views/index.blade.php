@@ -597,7 +597,7 @@ use Illuminate\Support\Str;
             display: flex;
             flex-direction: column;
             /* align-items: center; */
-            min-height: 600px;
+            min-height: 800px;
             border-radius: 4px;
         }
 
@@ -786,7 +786,7 @@ use Illuminate\Support\Str;
         }
 
         /* Multiple swiperjs instances */
-        .swiper-button-next.s1, .swiper-button-prev.s1 {
+        .swiper-button-next, .swiper-button-prev {
             color: #fff !important;
         }
 
@@ -918,12 +918,32 @@ use Illuminate\Support\Str;
             </div>
         </section>
 
-        <section id="longtext" style="width:100%; height: 600px; margin: 42px 0; background: blue;">
-            This is blue
-        </section>
-
-        <section id="premiumtext" style="width:100%; height: 600px; margin: 42px 0; background: red;">
-            This is red
+        <section id="premiumtext">
+            <div class="row">
+                @foreach($paidtextPosts as $post)
+                    <div class="col-md-4">
+                        <div class="card post-card paid-text-card">
+                            <div class="card-header post-title">{{ $post->title }}</div>
+                            <div class="card-body" style="font-size: 14px;">
+                                @php
+                                $truncatedBody = Str::limit(strip_tags($post->body), 200);
+                                $isTruncated = strlen(strip_tags($post->body)) > 200;
+                                @endphp
+                                <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
+                                    {!! $truncatedBody !!}
+                                </p>
+                                @if($isTruncated)
+                                @auth
+                                <a href="#" class="show-more">Read more</a>
+                                @else
+                                <a href="{{ route('login') }}" class="login-to-see-more">Read more</a>
+                                @endauth
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </section>
 
         <section id="graphicstext" style="width:100%; height: 600px; margin: 42px 0; background: green;">
@@ -1030,7 +1050,7 @@ use Illuminate\Support\Str;
 
     <!-- Initialize Swiper -->
     <script>
-        const s1 = new Swiper(".s1", {
+        const swiper = new Swiper(".swiper", {
             // Optional parameters
             slidesPerView: 1,
             // spaceBetween: 30,
