@@ -15,7 +15,7 @@ use Illuminate\Support\Str;
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -402,7 +402,7 @@ use Illuminate\Support\Str;
         }
 
         body {
-            background-color: #37373d;
+            background-color: #111111f2;
             font-family: "Open Sans", sans-serif;
             color: #ffffff;
         }
@@ -733,7 +733,16 @@ use Illuminate\Support\Str;
             text-decoration: none;
         }
 
+        .swiper-container {
+            padding:  0px 0px !important;
+        }
+
         @media only screen and (max-width: 768px) {
+
+            
+            .swiper-container {
+                padding: 0px 0px !important;
+            }
 
             h4.hero-text {
                 margin-bottom: 24px;
@@ -753,13 +762,13 @@ use Illuminate\Support\Str;
             }
         }
 
-        @media only screen and (max-width: 420px) { 
+        @media only screen and (max-width: 420px) {
             h4.hero-text {
                 margin-bottom: 20px;
                 font-size: 20px;
             }
 
-            p.read-instruction{
+            p.read-instruction {
                 font-size: 14px;
             }
 
@@ -778,7 +787,7 @@ use Illuminate\Support\Str;
             }
         }
 
-        @media only screen and (max-width: 370px) { 
+        @media only screen and (max-width: 370px) {
             .hero-box p {
                 text-align: center;
                 font-size: 12px;
@@ -786,186 +795,254 @@ use Illuminate\Support\Str;
         }
 
         /* Multiple swiperjs instances */
-        .swiper-button-next, .swiper-button-prev {
+        .swiper-button-next,
+        .swiper-button-prev {
             color: #fff !important;
         }
 
-        .swiper-button-next.s2, .swiper-button-prev.s2 {
+        .swiper-button-next.s2,
+        .swiper-button-prev.s2 {
             color: #fff !important;
         }
 
 
         /* Footer CSS */
         footer {
-  /* position: absolute;
+            background: #111;
+            height: auto;
+            width: 100vw;
+            padding-top: 40px;
+            color: #fff;
+        }
 
-  bottom: 0;
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
 
-  left: 0;
+        .footer-content h3 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            line-height: 3rem;
+        }
 
-  right: 0; */
+        .footer-content p {
+            max-width: 500px;
+            margin: 10px auto;
+            line-height: 28px;
+            font-size: 14px;
+            color: #cacdd2;
+        }
 
-  background: #111;
+        .socials {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 3rem 0;
+        }
 
-  height: auto;
+        .socials li {
+            margin: 0 10px;
+        }
 
-  width: 100vw;
+        .socials a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px;
+        }
 
-  padding-top: 40px;
+        .socials a i {
+            font-size: 1.1rem;
+            width: 20px;
+            transition: color 0.4s ease;
+        }
 
-  color: #fff;
-}
+        .socials a:hover i {
+            color: aqua;
+        }
 
-.footer-content {
-  display: flex;
+        .footer-bottom {
+            background: #000;
+            width: 100vw;
+            padding: 20px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
 
-  align-items: center;
+        .footer-bottom p {
+            float: left;
+            font-size: 14px;
+            word-spacing: 2px;
+        }
 
-  justify-content: center;
+        .footer-bottom p a {
+            color: #ccc;
+            font-size: 16px;
+            text-decoration: none;
+        }
 
-  flex-direction: column;
+        .footer-bottom span {
+            text-transform: uppercase;
+        }
 
-  text-align: center;
-}
+        .footer-menu {
+            float: right;
+        }
 
-.footer-content h3 {
-  font-size: 2.1rem;
+        .footer-menu ul {
+            display: flex;
+        }
 
-  font-weight: 500;
+        .footer-menu ul li {
+            padding-right: 10px;
 
-  text-transform: capitalize;
+            display: block;
+        }
 
-  line-height: 3rem;
-}
+        .footer-menu ul li a {
+            color: #cfd2d6;
 
-.footer-content p {
-  max-width: 500px;
+            text-decoration: none;
+        }
 
-  margin: 10px auto;
+        .footer-menu ul li a:hover {
+            color: #27bcda;
+        }
 
-  line-height: 28px;
+        @media (max-width: 500px) {
+            .footer-bottom p {
+                float: none;
+            }
 
-  font-size: 14px;
+            .footer-menu ul {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+        }
 
-  color: #cacdd2;
-}
+        /* New Header and Topbar Design */
+        .sticky-top {
+            background-color: #000;
+        }
 
-.socials {
-  list-style: none;
+        .topbar {
+            background-color: #111;
+            padding: 4px 0;
+        }
 
-  display: flex;
+        a#moveYellowLink,
+        a#moveBlueLink,
+        a#moveRedLink,
+        a#moveGreenLink {
+            transition: background 0.3s ease, -webkit-text-fill-color 0.3s ease;
+        }
 
-  align-items: center;
+        a#moveYellowLink:hover {
+            background: linear-gradient(220.55deg, #FFD439 0%, #FF7A00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-  justify-content: center;
+        a#moveBlueLink:hover {
+            background: linear-gradient(220.55deg, #3793FF 0%, #0017E4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-  margin: 1rem 0 3rem 0;
-}
+        a#moveRedLink:hover {
+            background: linear-gradient(220.55deg, #FF896D 0%, #D02020 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-.socials li {
-  margin: 0 10px;
-}
+        a#moveGreenLink:hover {
+            background: linear-gradient(220.55deg, #00FF00 0%, #007D00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-.socials a {
-  text-decoration: none;
+        /* Paid Course Cards */
 
-  color: #fff;
+        .paid-text-card .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 210px;
+        }
 
-  padding: 5px;
-}
+        .card-header.post-title {
+            min-height: 65px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
 
-.socials a i {
-  font-size: 1.1rem;
+        .f-menu li:not(:last-child)::after {
+            content: '|';
+            padding-left: 10px;
+        }
 
-  width: 20px;
+        .footer-bottom {
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
 
-  transition: color 0.4s ease;
-}
+        .footer-bottom .container p {
+            margin-bottom: 0px;
+        }
 
-.socials a:hover i {
-  color: aqua;
-}
+        .footer-menu .f-menu {
+            margin-bottom: 0px;
+        }
 
-.footer-bottom {
-  background: #000;
+        .footer-bottom .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-  width: 100vw;
+        @media only screen and (max-width: 1000px) {
+            .footer-bottom .container {
+                display: flex;
+                flex-direction: column;
+            }
+        }
 
-  padding: 20px;
+        @media only screen and (max-width: 768px) {
 
-  padding-bottom: 40px;
+            .footer-bottom {
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
 
-  text-align: center;
-}
-
-.footer-bottom p {
-  float: left;
-
-  font-size: 14px;
-
-  word-spacing: 2px;
-}
-
-.footer-bottom p a {
-  color: #ccc;
-
-  font-size: 16px;
-
-  text-decoration: none;
-}
-
-.footer-bottom span {
-  text-transform: uppercase;
-}
-
-.footer-menu {
-  float: right;
-}
-
-.footer-menu ul {
-  display: flex;
-}
-
-.footer-menu ul li {
-  padding-right: 10px;
-
-  display: block;
-}
-
-.footer-menu ul li a {
-  color: #cfd2d6;
-
-  text-decoration: none;
-}
-
-.footer-menu ul li a:hover {
-  color: #27bcda;
-}
-
-@media (max-width: 500px) {
-  .footer-bottom p {
-    float: none;
-  }
-
-  .footer-menu ul {
-    display: flex;
-
-    margin-top: 10px;
-
-    margin-bottom: 20px;
-
-    text-align: center;
-  }
-}
-
+            .f-menu li:not(:last-child)::after {
+                content: '';
+                padding-left: 10px;
+            }
+            .footer-menu .f-menu {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+        }
 
     </style>
 </head>
 
 <body class="antialiased">
-    <div class="sticky-top" style="background-color: #121214;">
-
-        <div class="" style="background-color: #37373d; padding: 6px 0;">
+    <div class="sticky-top">
+        <div class="topbar">
             <div class="container">
                 <div class="contact-info">
                     <span>You may have anything:</span>
@@ -1055,7 +1132,7 @@ use Illuminate\Support\Str;
             </div>
         </section>
 
-        
+
         <section id="longtext" class="swiper-section">
             <div class="swiper-container">
                 <div class="swiper s2">
@@ -1086,96 +1163,97 @@ use Illuminate\Support\Str;
         <section id="premiumtext">
             <div class="row">
                 @foreach($paidtextPosts as $post)
-                    <div class="col-md-4">
-                        <div class="card post-card paid-text-card">
-                            <div class="card-header post-title">{{ $post->title }}</div>
-                            <div class="card-body" style="font-size: 14px;">
-                                @php
-                                $truncatedBody = Str::limit(strip_tags($post->body), 200);
-                                $isTruncated = strlen(strip_tags($post->body)) > 200;
-                                @endphp
-                                <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
-                                    {!! $truncatedBody !!}
-                                </p>
-                                @if($isTruncated)
-                                @auth
-                                <a href="#" class="show-more">Read more</a>
-                                @else
-                                <a href="{{ route('login') }}" class="login-to-see-more">Read more</a>
-                                @endauth
-                                @endif
-                            </div>
+                <div class="col-md-4">
+                    <div class="card post-card paid-text-card">
+                        <div class="card-header post-title">{{ $post->title }}</div>
+                        <div class="card-body" style="font-size: 14px;">
+                            @php
+                            $truncatedBody = Str::limit(strip_tags($post->body), 200);
+                            $isTruncated = strlen(strip_tags($post->body)) > 200;
+                            @endphp
+                            <p class="card-text post-body" data-full-text="{!! htmlentities($post->body) !!}" data-truncated-text="{!! htmlentities($truncatedBody) !!}">
+                                {!! $truncatedBody !!}
+                            </p>
+                            @if($isTruncated)
+                            @auth
+                            <a href="#" class="show-more">Read more</a>
+                            @else
+                            <a href="{{ route('login') }}" class="login-to-see-more">Read more</a>
+                            @endauth
+                            @endif
                         </div>
                     </div>
+                </div>
                 @endforeach
             </div>
         </section>
 
         <section id="graphicstext" style="width:100%; height: 600px; margin: 42px 0; background: green; display: flex; align-items:center; justify-content: center; ">
             <p style="font-size: 24px; ">
-                This is the graphics text section.
+                Graphics are coming soon...
             </p>
         </section>
 
     </div>
 
-    
-    <div class="" style="width:100%; background-color: #37373d; padding: 6px 0;">
+    <footer>
+        <div class="footer-content">
             <div class="container">
-                <div class="contact-info">
-                    <span>You may have anything:</span>
+                <h3>Get Connected</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae felis scelerisque, gravida sapien non, cursus augue. Aenean id pretium turpis. Suspendisse eros nunc, sollicitudin nec.</p>
+                <ul class="socials">
+                    <li>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                            </svg>
+                        </a>
+                    </li> 
+                    <li>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                            </svg>
+                        </a>
+                    </li> 
+                    <li>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15"/>
+                            </svg>
+                        </a>
+                    </li> 
+                    <li>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+                            <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>Copyright &copy <span id="year"></span> <a href="#">@anyonow</a> </p>
+                <div class="footer-menu">
+                    <ul class="f-menu">
+                        <li><a href="#" id="moveYellowLink">Keywords Section</a></li>
+                        <li><a href="#" id="moveBlueLink">Long Text Section</a></li>
+                        <li><a href="#" id="moveRedLink">Premium Text Section</a></li>
+                        <li><a href="#" id="moveGreenLink">Graphics Section</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-    <footer>
-
-        <div class="footer-content">
-
-        <h3>Footer Example</h3>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae felis scelerisque, gravida sapien non, cursus augue. Aenean id pretium turpis. Suspendisse eros nunc, sollicitudin nec.</p>
-
-        <ul class="socials">
-
-            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-
-            <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-
-            <li><a href="#"><i class="bi bi-google-plus"></i></a></li>
-
-            <li><a href="#"><i class="bi bi-youtube"></i></a></li>
-
-            <li><a href="#"><i class="bi bi-linkedin-square"></i></a></li>
-
-        </ul>
-
-        </div>
-
-        <div class="footer-bottom">
-
-        <p>Copyright &copy <span id="year"></span> <a href="#">@coding_dev_</a> </p>
-
-        <div class="footer-menu">
-
-            <ul class="f-menu">
-
-            <li><a href="">Home</a></li>
-
-            <li><a href="">About</a></li>
-
-            <li><a href="">Contact</a></li>
-
-            <li><a href="">Blog</a></li>
-
-            </ul>
-
-        </div>
-
-        </div>
-
-</footer>
-        
+    </footer>
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -1190,7 +1268,7 @@ use Illuminate\Support\Str;
 
     <!-- JS to move boxes to specific section -->
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             function scrollToSection(sectionId) {
                 var offset = 130; // Adjust this value as needed
                 $('html, body').animate({
@@ -1198,38 +1276,38 @@ use Illuminate\Support\Str;
                 }, 1000); // Adjust the speed (in milliseconds) as needed
             }
 
-            $("#yellowBox").click(function(){
+            $("#yellowBox").click(function() {
                 scrollToSection("#keywords");
             });
 
-            $("#moveYellowLink").click(function(event){
+            $("#moveYellowLink").click(function(event) {
                 event.preventDefault(); // Prevent the default anchor behavior
                 scrollToSection("#keywords");
             });
 
-            $("#blueBox").click(function(){
+            $("#blueBox").click(function() {
                 scrollToSection("#longtext");
             });
 
-            $("#moveBlueLink").click(function(event){
+            $("#moveBlueLink").click(function(event) {
                 event.preventDefault(); // Prevent the default anchor behavior
                 scrollToSection("#longtext");
             });
 
-            $("#redBox").click(function(){
+            $("#redBox").click(function() {
                 scrollToSection("#premiumtext");
             });
 
-            $("#moveRedLink").click(function(event){
+            $("#moveRedLink").click(function(event) {
                 event.preventDefault(); // Prevent the default anchor behavior
                 scrollToSection("#premiumtext");
             });
 
-            $("#greenBox").click(function(){
+            $("#greenBox").click(function() {
                 scrollToSection("#graphicstext");
             });
 
-            $("#moveGreenLink").click(function(event){
+            $("#moveGreenLink").click(function(event) {
                 event.preventDefault(); // Prevent the default anchor behavior
                 scrollToSection("#graphicstext");
             });
