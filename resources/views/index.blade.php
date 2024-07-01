@@ -589,7 +589,7 @@ use Illuminate\Support\Str;
             display: flex;
             flex-direction: column;
             /* align-items: center; */
-            min-height: 400px;
+            min-height: 560px;
             border-radius: 4px;
         }
 
@@ -739,7 +739,10 @@ use Illuminate\Support\Str;
 
         @media only screen and (max-width: 768px) {
 
-            
+            section.hero-section {
+                border: 1px solid white;
+            }
+
             .swiper-container {
                 padding: 0px 0px !important;
             }
@@ -1112,12 +1115,9 @@ use Illuminate\Support\Str;
                         <div class="swiper-slide">
                             <div class="keywords-text-card">
                                 <p class="post-title">{{ $post->title }}</p>
-                                <div class="post-content" style="font-size: 14px;" data-full-content="{{ $post->body }}">
-                                    {!! Str::limit($post->body, 550) !!}
+                                <div class="post-content" style="font-size: 14px;">
+                                    {!! $post->body !!}
                                 </div>
-                                @if(Str::length($post->body) > 550)
-                                <a class="view-more-btn">View More</a>
-                                @endif
                             </div>
                         </div>
                         @endforeach
@@ -1143,7 +1143,7 @@ use Illuminate\Support\Str;
                         <div class="swiper-slide">
                             <div class="long-text-card">
                                 <p class="post-title">{{ $post->title }}</p>
-                                <div class="post-content" style="font-size: 14px;" data-full-content="{{ $post->body }}">
+                                <div class="post-content" style="font-size: 14px;">
                                     {!! $post->body !!}
                                 </div>
                             </div>
@@ -1377,29 +1377,6 @@ use Illuminate\Support\Str;
                     // spaceBetween: 30,
                 },
             },
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.post-content').forEach(function(content) {
-                const fullContent = content.getAttribute('data-full-content');
-                const viewMoreBtn = content.nextElementSibling;
-
-                if (fullContent.length > 550) {
-                    viewMoreBtn.style.display = 'inline-block';
-                }
-
-                // viewMoreBtn.addEventListener('click', function() {
-                //     if (viewMoreBtn.textContent === 'View More') {
-                //         content.textContent = fullContent;
-                //         viewMoreBtn.textContent = 'View Less';
-                //     } else {
-                //         content.textContent = fullContent.substring(0, 400) + '...';
-                //         viewMoreBtn.textContent = 'View More';
-                //     }
-                // });
-            });
         });
     </script>
 

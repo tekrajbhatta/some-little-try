@@ -2,36 +2,35 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="row justify-content-center">        
+        <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Edit Post') }}</div>
-
+                <div class="card-header">{{ __('Create Post') }}</div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-                    
-                    <form action="{{ route('posts.update', $post) }}" method="post">
+                 
+                    <form action="/post" method="post">
                         @csrf
-                        @method('PUT')
                         <div class="form-group">
                             <label for="">Post Title</label>
-                            <input type="text" name="title" class="form-control" value="{{ $post->title }}" required>
+                            <input type="text" name="title" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                             <label for="">Post Body</label>
-                            <textarea class="ckeditor form-control" name="body" required>{{ $post->body }}</textarea>
+                            <!-- <textarea class="ckeditor form-control" name="body" required></textarea> -->
+                            <textarea id="summernote" class="form-control" name="body" required></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="category_id">Category</label>
                             <select name="category_id" class="form-control" required>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}" {{ $post->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -41,14 +40,24 @@
                     
                 </div>
             </div>
+       
         </div>
     </div>
 </div>
 @endsection
 @section('scripts')
     <script>
-    $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-    });
+        // // CK Editor
+        // $(document).ready(function () {
+        //     $('.ckeditor').ckeditor();
+        // });
+
+        // Summernote
+        // $('#summernote').summernote({
+        //     placeholder: 'Start your writing...',
+        //     tabsize: 2,
+        //     height: 100
+        // });
+
     </script>
 @endsection
