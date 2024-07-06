@@ -1490,13 +1490,14 @@ use Illuminate\Support\Str;
                         </div> -->
                         <div class="scroller" data-speed="fast">
                             <ul class="tag-list scroller__inner">
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>JS</li>
-                                <li>SSG</li>
-                                <li>webdev</li>
-                                <li>animation</li>
-                                <li>UI/UX</li>
+                                <li>Spaces</li>
+                                <li>Anything</li>
+                                <li>Motion</li>
+                                <li>Blank</li>
+                                <li>Silence</li>
+                                <li>Sounds</li>
+                                <li>Colors</li>
+                                <li>Illution</li>
                             </ul>
                         </div>
                     </div>
