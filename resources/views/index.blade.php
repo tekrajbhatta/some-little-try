@@ -681,7 +681,7 @@ use Illuminate\Support\Str;
             flex-direction: row;
             flex-wrap: wrap;
             align-items: flex-start;
-            margin: 42px 0;
+            margin: 0 0 42px 0;
             /* border: 5px solid white; */
             padding: 20px;
         }
@@ -747,6 +747,135 @@ use Illuminate\Support\Str;
             text-decoration: none;
         }
 
+        /* Moving Words */
+        /* .scroll-section {
+            width: 300px; 
+            overflow: hidden;
+            white-space: nowrap;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+        }
+
+        .scroll-content {
+            display: inline-block;
+            white-space: nowrap;
+            transition: transform 1s ease-in-out;
+        }
+
+        .scroll-content span {
+            display: inline-block;
+            width: 100px; 
+            text-align: center;
+        } */
+
+        /* @keyframes infiniteScroll {
+        from {transform: translateX(0)}
+        to {transform: translateX(-50%)}
+        }
+        .moving-container {
+        width: 400px;
+        overflow-x: hidden;
+        }
+        .horizontal-scrolling-items {
+        display: flex;
+        gap: 30px;
+        font-size: 20px;
+        width: 2600px;
+        animation-name: infiniteScroll;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        }
+        .horizontal-scrolling-items__item {
+        white-space: nowrap;
+        } */
+
+        section.moving-section {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin: 42px 0;
+            padding: 2px;
+        }
+
+        .scroller {
+            width: 100%;
+        }
+
+        .scroller__inner {
+            padding-block: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .scroller[data-animated="true"] {
+            overflow: hidden;
+            -webkit-mask: linear-gradient(90deg,
+                    transparent,
+                    white 20%,
+                    white 80%,
+                    transparent);
+            mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+        }
+
+        .scroller[data-animated="true"] .scroller__inner {
+            width: max-content;
+            flex-wrap: nowrap;
+            animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+        }
+
+        .scroller[data-direction="right"] {
+            --_animation-direction: reverse;
+        }
+
+        .scroller[data-direction="left"] {
+            --_animation-direction: forwards;
+        }
+
+        .scroller[data-speed="fast"] {
+            --_animation-duration: 20s;
+        }
+
+        .scroller[data-speed="slow"] {
+            --_animation-duration: 60s;
+        }
+
+        @keyframes scroll {
+            to {
+                transform: translate(calc(-50% - 0.5rem));
+            }
+        }
+
+        /* general styles */
+
+        :root {
+            --clr-neutral-100: hsl(0, 0%, 100%);
+            --clr-primary-100: hsl(205, 15%, 58%);
+            --clr-primary-400: hsl(215, 25%, 27%);
+            --clr-primary-800: hsl(217, 33%, 17%);
+            --clr-primary-900: hsl(218, 33%, 9%);
+        }
+
+        .tag-list {
+            margin: 0;
+            padding-inline: 0;
+            list-style: none;
+        }
+
+        .tag-list li {
+            padding: 4px 12px;
+            background: #f0f0f0;
+            border-radius: 0.5rem;
+            color: #333;
+            box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900);
+        }
+
+
+
+
         /* Hero Right */
         /* Styling the container */
 
@@ -760,33 +889,62 @@ use Illuminate\Support\Str;
         .hero-right {
             flex-basis: 30%;
             /* padding: 20px; */
-            background-color: #fff; /* Background color for the container */
-            border-radius: 10px; /* Rounded corners for the container */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the container */
+            background-color: #fff;
+            /* Background color for the container */
+            border-radius: 10px;
+            /* Rounded corners for the container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Shadow for the container */
         }
 
         /* Styling the unordered list */
         .hero-right-items {
-            list-style-type: none; /* Remove default bullets */
-            padding: 0; /* Remove default padding */
-            margin: 0; /* Remove default margin */
+            list-style-type: none;
+            /* Remove default bullets */
+            padding: 0;
+            /* Remove default padding */
+            margin: 0;
+            /* Remove default margin */
         }
 
         /* Styling the list items */
         .hero-right-item {
-            background-color: #f0f0f0; /* Light grey background for list items */
-            margin: 5px 0; /* Space between list items */
-            padding: 5px 15px; /* Padding inside list items */
-            border-radius: 5px; /* Rounded corners */
-            color: #333; /* Text color */
-            font-size: 16px; /* Font size */
-            transition: background-color 0.3s; /* Smooth transition for background color */
+            background-color: #f0f0f0;
+            /* Light grey background for list items */
+            margin: 5px 0;
+            /* Space between list items */
+            padding: 5px 15px;
+            /* Padding inside list items */
+            border-radius: 5px;
+            /* Rounded corners */
+            color: #333;
+            /* Text color */
+            font-size: 16px;
+            /* Font size */
+            transition: background-color 0.3s;
+            /* Smooth transition for background color */
         }
 
         /* Add hover effect to list items */
         .hero-right-item:hover {
-            background-color: #ccc; /* Darker grey background on hover */
-            cursor: pointer; /* Pointer cursor on hover */
+            background-color: #ccc;
+            /* Darker grey background on hover */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+        }
+
+        @media only screen and (max-width: 768px) {
+        
+            .hero-left {
+                flex-basis: 70%;
+                /* display: flex;
+                flex-direction: column;
+                align-items: flex-start; */
+            }
+
+            .hero-right {
+                flex-basis: 30%;
+            }
         }
 
         .swiper-container {
@@ -1165,51 +1323,104 @@ use Illuminate\Support\Str;
     </div>
 
     <div class="container">
+        <!-- <section class="moving-section">
+            <div class="scroller" data-speed="fast">
+                <ul class="tag-list scroller__inner">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                    <li>SSG</li>
+                    <li>webdev</li>
+                    <li>animation</li>
+                    <li>UI/UX</li>
+                </ul>
+            </div>
+        </section> -->
         <section class="hero-section">
             <!-- <div class="hero-container"> -->
-                <div class="hero-left">
-                    <h4 class="hero-text">Creation is anything you are.</h4>
-                    <div class="box-area">
-                        <p class="read-instruction">
-                            Spaces you click
-                        </p>
-                        <div class="hero-boxes">
-                            <div class="hero-box">
-                                <div id="yellowBox" class="hero-box-shape yellow"></div>
-                                <p><a href="#" id="moveYellowLink">Illusion</a></p>
-                            </div>
-                            <div class="hero-box">
-                                <div id="blueBox" class="hero-box-shape blue"></div>
-                                <p><a href="#" id="moveBlueLink">Any Time</a></p>
-                            </div>
-                            <div class="hero-box">
-                                <div id="redBox" class="hero-box-shape red"></div>
-                                <p><a href="#" id="moveRedLink">Energy</a></p>
-                            </div>
-                            <div class="hero-box">
-                                <div id="greenBox" class="hero-box-shape green"></div>
-                                <p><a href="#" id="moveGreenLink">Graphics</a></p>
-                            </div>
+            <div class="hero-left">
+                <h4 class="hero-text">Creation is anything you are.</h4>
+                <div class="box-area">
+                    <p class="read-instruction">
+                        Spaces you click
+                    </p>
+                    <div class="hero-boxes">
+                        <div class="hero-box">
+                            <div id="yellowBox" class="hero-box-shape yellow"></div>
+                            <p><a href="#" id="moveYellowLink">Illusion</a></p>
+                        </div>
+                        <div class="hero-box">
+                            <div id="blueBox" class="hero-box-shape blue"></div>
+                            <p><a href="#" id="moveBlueLink">Any Time</a></p>
+                        </div>
+                        <div class="hero-box">
+                            <div id="redBox" class="hero-box-shape red"></div>
+                            <p><a href="#" id="moveRedLink">Energy</a></p>
+                        </div>
+                        <div class="hero-box">
+                            <div id="greenBox" class="hero-box-shape green"></div>
+                            <p><a href="#" id="moveGreenLink">Graphics</a></p>
                         </div>
                     </div>
+                    <!-- Moving Words -->
                     <div class="moving-words">
-                        
+                        <!-- <div class="moving-container">
+                            <div class="horizontal-scrolling-items">
+                                <div class="horizontal-scrolling-items__item">
+                                    Word 1
+                                </div>
+                                <div class="horizontal-scrolling-items__item">
+                                    Word 2
+                                </div>
+                                <div class="horizontal-scrolling-items__item">
+                                    Word 3
+                                </div>
+                                <div class="horizontal-scrolling-items__item">
+                                    Word 11
+                                </div><div class="horizontal-scrolling-items__item">
+                                    Word 22
+                                </div>
+                                <div class="horizontal-scrolling-items__item">
+                                    Word 33
+                                </div><div class="horizontal-scrolling-items__item">
+                                    Word 111
+                                </div>
+                                <div class="horizontal-scrolling-items__item">
+                                    Word 222
+                                </div><div class="horizontal-scrolling-items__item">
+                                    Word 333
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="scroller" data-speed="fast">
+                            <ul class="tag-list scroller__inner">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JS</li>
+                                <li>SSG</li>
+                                <li>webdev</li>
+                                <li>animation</li>
+                                <li>UI/UX</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-right">
-                    <ul class="hero-right-items">
-                        <li class="hero-right-item">Any life a while</li>
-                        <li class="hero-right-item">You know are not</li>
-                        <li class="hero-right-item">Anything - motion</li>
-                        <li class="hero-right-item">Know yourself</li>
-                        <li class="hero-right-item">Time and energy</li>
-                        <li class="hero-right-item">Sounds, sensation</li>
-                        <li class="hero-right-item">Links silence</li>
-                        <li class="hero-right-item">Among life</li>
-                        <li class="hero-right-item">Could be anything</li>
-                        <li class="hero-right-item">Gravity</li>
-                    </ul>
-                </div>
+
+            </div>
+            <div class="hero-right">
+                <ul class="hero-right-items">
+                    <li class="hero-right-item">Any life a while</li>
+                    <li class="hero-right-item">You know are not</li>
+                    <li class="hero-right-item">Anything - motion</li>
+                    <li class="hero-right-item">Know yourself</li>
+                    <li class="hero-right-item">Time and energy</li>
+                    <li class="hero-right-item">Sounds, sensation</li>
+                    <li class="hero-right-item">Links silence</li>
+                    <li class="hero-right-item">Among life</li>
+                    <li class="hero-right-item">Could be anything</li>
+                    <li class="hero-right-item">Gravity</li>
+                </ul>
+            </div>
             <!-- </div> -->
         </section>
 
@@ -1381,6 +1592,36 @@ use Illuminate\Support\Str;
     <script>
         const year = document.getElementById("year");
         year.textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Moving Words -->
+    <script>
+        const scrollers = document.querySelectorAll(".scroller");
+
+        // If a user hasn't opted in for recuded motion, then we add the animation
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            addAnimation();
+        }
+
+        function addAnimation() {
+            scrollers.forEach((scroller) => {
+                // add data-animated="true" to every `.scroller` on the page
+                scroller.setAttribute("data-animated", true);
+
+                // Make an array from the elements within `.scroller-inner`
+                const scrollerInner = scroller.querySelector(".scroller__inner");
+                const scrollerContent = Array.from(scrollerInner.children);
+
+                // For each item in the array, clone it
+                // add aria-hidden to it
+                // add it into the `.scroller-inner`
+                scrollerContent.forEach((item) => {
+                    const duplicatedItem = item.cloneNode(true);
+                    duplicatedItem.setAttribute("aria-hidden", true);
+                    scrollerInner.appendChild(duplicatedItem);
+                });
+            });
+        }
     </script>
 
     <!-- Scroll to top -->
