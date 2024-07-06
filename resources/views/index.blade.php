@@ -677,11 +677,12 @@ use Illuminate\Support\Str;
         /* New Hero Section */
         section.hero-section {
             display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-start;
             margin: 42px 0;
-            border: 5px solid white;
+            /* border: 5px solid white; */
             padding: 20px;
         }
 
@@ -733,6 +734,7 @@ use Illuminate\Support\Str;
 
         p.read-instruction {
             margin-bottom: 20px;
+            font-size: larger;
         }
 
         .hero-box p {
@@ -743,6 +745,48 @@ use Illuminate\Support\Str;
             color: #ffffff;
             opacity: 0.8;
             text-decoration: none;
+        }
+
+        /* Hero Right */
+        /* Styling the container */
+
+        .hero-left {
+            flex-basis: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hero-right {
+            flex-basis: 30%;
+            /* padding: 20px; */
+            background-color: #fff; /* Background color for the container */
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for the container */
+        }
+
+        /* Styling the unordered list */
+        .hero-right-items {
+            list-style-type: none; /* Remove default bullets */
+            padding: 0; /* Remove default padding */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Styling the list items */
+        .hero-right-item {
+            background-color: #f0f0f0; /* Light grey background for list items */
+            margin: 5px 0; /* Space between list items */
+            padding: 5px 15px; /* Padding inside list items */
+            border-radius: 5px; /* Rounded corners */
+            color: #333; /* Text color */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+        }
+
+        /* Add hover effect to list items */
+        .hero-right-item:hover {
+            background-color: #ccc; /* Darker grey background on hover */
+            cursor: pointer; /* Pointer cursor on hover */
         }
 
         .swiper-container {
@@ -1072,7 +1116,8 @@ use Illuminate\Support\Str;
         }
 
         #scrollToTopBtn svg {
-            fill: black; /* SVG icon color */
+            fill: black;
+            /* SVG icon color */
             width: 16px;
             height: 16px;
         }
@@ -1080,7 +1125,6 @@ use Illuminate\Support\Str;
         #scrollToTopBtn:hover {
             opacity: 0.8;
         }
-
     </style>
 </head>
 
@@ -1122,28 +1166,51 @@ use Illuminate\Support\Str;
 
     <div class="container">
         <section class="hero-section">
-            <h4 class="hero-text">Creation is anything you are.</h4>
-            <p class="read-instruction">
-                Spaces you click
-            </p>
-            <div class="hero-boxes">
-                <div class="hero-box">
-                    <div id="yellowBox" class="hero-box-shape yellow"></div>
-                    <p><a href="#" id="moveYellowLink">Illusion</a></p>
+            <!-- <div class="hero-container"> -->
+                <div class="hero-left">
+                    <h4 class="hero-text">Creation is anything you are.</h4>
+                    <div class="box-area">
+                        <p class="read-instruction">
+                            Spaces you click
+                        </p>
+                        <div class="hero-boxes">
+                            <div class="hero-box">
+                                <div id="yellowBox" class="hero-box-shape yellow"></div>
+                                <p><a href="#" id="moveYellowLink">Illusion</a></p>
+                            </div>
+                            <div class="hero-box">
+                                <div id="blueBox" class="hero-box-shape blue"></div>
+                                <p><a href="#" id="moveBlueLink">Any Time</a></p>
+                            </div>
+                            <div class="hero-box">
+                                <div id="redBox" class="hero-box-shape red"></div>
+                                <p><a href="#" id="moveRedLink">Energy</a></p>
+                            </div>
+                            <div class="hero-box">
+                                <div id="greenBox" class="hero-box-shape green"></div>
+                                <p><a href="#" id="moveGreenLink">Graphics</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="moving-words">
+                        
+                    </div>
                 </div>
-                <div class="hero-box">
-                    <div id="blueBox" class="hero-box-shape blue"></div>
-                    <p><a href="#" id="moveBlueLink">Any time</a></p>
+                <div class="hero-right">
+                    <ul class="hero-right-items">
+                        <li class="hero-right-item">Any life a while</li>
+                        <li class="hero-right-item">You know are not</li>
+                        <li class="hero-right-item">Anything - motion</li>
+                        <li class="hero-right-item">Know yourself</li>
+                        <li class="hero-right-item">Time and energy</li>
+                        <li class="hero-right-item">Sounds, sensation</li>
+                        <li class="hero-right-item">Links silence</li>
+                        <li class="hero-right-item">Among life</li>
+                        <li class="hero-right-item">Could be anything</li>
+                        <li class="hero-right-item">Gravity</li>
+                    </ul>
                 </div>
-                <div class="hero-box">
-                    <div id="redBox" class="hero-box-shape red"></div>
-                    <p><a href="#" id="moveRedLink">Energy</a></p>
-                </div>
-                <div class="hero-box">
-                    <div id="greenBox" class="hero-box-shape green"></div>
-                    <p><a href="#" id="moveGreenLink">Graphics</a></p>
-                </div>
-            </div>
+            <!-- </div> -->
         </section>
 
         <section id="keywords" class="swiper-section">
@@ -1286,10 +1353,10 @@ use Illuminate\Support\Str;
                 <p>Copyright &copy <span id="year"></span> <a href="#">@anyonow</a> </p>
                 <div class="footer-menu">
                     <ul class="f-menu">
-                        <li><a href="#" id="moveYellowLink">Keywords Section</a></li>
-                        <li><a href="#" id="moveBlueLink">Long Text Section</a></li>
-                        <li><a href="#" id="moveRedLink">Premium Text Section</a></li>
-                        <li><a href="#" id="moveGreenLink">Graphics Section</a></li>
+                        <li><a href="" id="moveYellowLink">Illusion</a></li>
+                        <li><a href="" id="moveBlueLink">Any Time</a></li>
+                        <li><a href="" id="moveRedLink">Energy</a></li>
+                        <li><a href="" id="moveGreenLink">Graphics</a></li>
                     </ul>
                 </div>
             </div>
@@ -1300,7 +1367,7 @@ use Illuminate\Support\Str;
     <button id="scrollToTopBtn" title="Go to top">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24px" height="24px" style="fill:black;">
             <g>
-                <path d="M511.5,353.5C511.5,358.5,511.5,363.5,511.5,368.5C509.546,373.065,507.046,377.398,504,381.5C497.136,388.698,489.97,395.532,482.5,402C471.318,408.229,460.318,407.895,449.5,401C384.986,336.32,320.32,271.82,255.5,207.5C190.32,272.514,124.986,337.347,59.5,402C48.6818,407.971,38.0151,407.637,27.5,401C19.6667,393.167,11.8333,385.333,4,377.5C2.45406,374.408,0.95406,371.408-0.5,368.5C-0.5,363.5-0.5,358.5-0.5,353.5C1.4539,348.935,3.9539,344.602,7,340.5C82.8333,264.667,158.667,188.833,234.5,113C246.474,103.086,259.141,102.086,272.5,110C350.667,188.167,428.833,266.333,507,344.5C508.546,347.592,510.046,350.592,511.5,353.5Z"/>
+                <path d="M511.5,353.5C511.5,358.5,511.5,363.5,511.5,368.5C509.546,373.065,507.046,377.398,504,381.5C497.136,388.698,489.97,395.532,482.5,402C471.318,408.229,460.318,407.895,449.5,401C384.986,336.32,320.32,271.82,255.5,207.5C190.32,272.514,124.986,337.347,59.5,402C48.6818,407.971,38.0151,407.637,27.5,401C19.6667,393.167,11.8333,385.333,4,377.5C2.45406,374.408,0.95406,371.408-0.5,368.5C-0.5,363.5-0.5,358.5-0.5,353.5C1.4539,348.935,3.9539,344.602,7,340.5C82.8333,264.667,158.667,188.833,234.5,113C246.474,103.086,259.141,102.086,272.5,110C350.667,188.167,428.833,266.333,507,344.5C508.546,347.592,510.046,350.592,511.5,353.5Z" />
             </g>
         </svg>
     </button>
@@ -1336,7 +1403,10 @@ use Illuminate\Support\Str;
 
         // When the user clicks on the button, scroll to the top of the document
         scrollToTopBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 
