@@ -681,7 +681,8 @@ use Illuminate\Support\Str;
             flex-direction: row;
             flex-wrap: wrap;
             align-items: flex-start;
-            margin: 0 0 42px 0;
+            /* margin: 0 0 42px 0; */
+            margin: 42px 0;
             /* border: 5px solid white; */
             padding: 20px;
         }
@@ -934,7 +935,91 @@ use Illuminate\Support\Str;
             /* Pointer cursor on hover */
         }
 
-        @media only screen and (max-width: 768px) {
+        @media only screen and (min-width: 1202px) {
+            .hero-boxes {
+                justify-content: flex-start;
+            }
+            
+        }
+
+        @media only screen and (max-width: 1202px) {
+            .hero-left {
+                /* flex-basis: unset; */
+                /* display: flex;
+                flex-direction: column;
+                align-items: flex-start; */
+            }
+
+            .hero-boxes {
+                justify-content: flex-start;
+            }
+
+            .hero-right {
+                /* flex-basis: unset; */
+            }
+
+            .scroller {
+                /* width: 100%; */
+                max-width: 400px;
+            }
+         }
+
+
+        @media only screen and (max-width: 992px) {
+        
+            h4.hero-text {
+                font-size: 32px;
+            }
+
+            .hero-left {
+                /* flex-basis: unset; */
+                /* display: flex;
+                flex-direction: column;
+                align-items: flex-start; */
+            }
+
+            .hero-right {
+                /* flex-basis: unset; */
+            }
+
+            .scroller {
+                /* width: 100%; */
+                max-width: 350px;
+            }
+        }
+
+        @media only screen and (max-width: 778px) {
+
+            section.hero-section {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .hero-left {
+                flex-basis: unset;
+                /* align-items: center; */
+                /* display: flex;
+                flex-direction: column;
+                align-items: flex-start; */
+            }
+
+            .hero-right {
+                flex-basis: unset;
+            }
+
+            .hero-right-items {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .scroller {
+                /* width: 100%; */
+                max-width: 270px;
+            }
+        }
+
+        @media only screen and (max-width: 576px) {
         
             .hero-left {
                 flex-basis: unset;
@@ -947,10 +1032,14 @@ use Illuminate\Support\Str;
                 flex-basis: unset;
             }
 
+            .hero-right-items {
+                gap: 5px;
+            }
+
             .scroller {
-            /* width: 100%; */
-            max-width: 300px;
-        }
+                /* width: 100%; */
+                max-width: 240px;
+            }
         }
 
         .swiper-container {
@@ -961,6 +1050,7 @@ use Illuminate\Support\Str;
 
             section.hero-section {
                 border: 1px solid white;
+                gap: 20px;
             }
 
             .swiper-container {
