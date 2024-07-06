@@ -801,7 +801,8 @@ use Illuminate\Support\Str;
         }
 
         .scroller {
-            width: 100%;
+            /* width: 100%; */
+            max-width: 600px;
         }
 
         .scroller__inner {
@@ -936,15 +937,20 @@ use Illuminate\Support\Str;
         @media only screen and (max-width: 768px) {
         
             .hero-left {
-                flex-basis: 70%;
+                flex-basis: unset;
                 /* display: flex;
                 flex-direction: column;
                 align-items: flex-start; */
             }
 
             .hero-right {
-                flex-basis: 30%;
+                flex-basis: unset;
             }
+
+            .scroller {
+            /* width: 100%; */
+            max-width: 300px;
+        }
         }
 
         .swiper-container {
