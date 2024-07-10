@@ -749,48 +749,6 @@ use Illuminate\Support\Str;
         }
 
         /* Moving Words */
-        /* .scroll-section {
-            width: 300px; 
-            overflow: hidden;
-            white-space: nowrap;
-            border: 1px solid #ccc;
-            margin: 20px auto;
-        }
-
-        .scroll-content {
-            display: inline-block;
-            white-space: nowrap;
-            transition: transform 1s ease-in-out;
-        }
-
-        .scroll-content span {
-            display: inline-block;
-            width: 100px; 
-            text-align: center;
-        } */
-
-        /* @keyframes infiniteScroll {
-        from {transform: translateX(0)}
-        to {transform: translateX(-50%)}
-        }
-        .moving-container {
-        width: 400px;
-        overflow-x: hidden;
-        }
-        .horizontal-scrolling-items {
-        display: flex;
-        gap: 30px;
-        font-size: 20px;
-        width: 2600px;
-        animation-name: infiniteScroll;
-        animation-duration: 20s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        }
-        .horizontal-scrolling-items__item {
-        white-space: nowrap;
-        } */
-
         section.moving-section {
             display: flex;
             justify-content: space-between;
@@ -874,9 +832,6 @@ use Illuminate\Support\Str;
             color: #333;
             box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900);
         }
-
-
-
 
         /* Hero Right */
         /* Styling the container */
@@ -1460,34 +1415,6 @@ use Illuminate\Support\Str;
                     </div>
                     <!-- Moving Words -->
                     <div class="moving-words">
-                        <!-- <div class="moving-container">
-                            <div class="horizontal-scrolling-items">
-                                <div class="horizontal-scrolling-items__item">
-                                    Word 1
-                                </div>
-                                <div class="horizontal-scrolling-items__item">
-                                    Word 2
-                                </div>
-                                <div class="horizontal-scrolling-items__item">
-                                    Word 3
-                                </div>
-                                <div class="horizontal-scrolling-items__item">
-                                    Word 11
-                                </div><div class="horizontal-scrolling-items__item">
-                                    Word 22
-                                </div>
-                                <div class="horizontal-scrolling-items__item">
-                                    Word 33
-                                </div><div class="horizontal-scrolling-items__item">
-                                    Word 111
-                                </div>
-                                <div class="horizontal-scrolling-items__item">
-                                    Word 222
-                                </div><div class="horizontal-scrolling-items__item">
-                                    Word 333
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="scroller" data-speed="fast">
                             <ul class="tag-list scroller__inner">
                                 <li>Spaces</li>
